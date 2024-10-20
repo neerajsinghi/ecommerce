@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "../ecomerceuser";
+
+package ecommerce;
+
+service UserMessenger {
+    rpc GetUserList (GetUserListRequest) returns (GetUserListResponse);
+}
+
+message GetUserListRequest {
+    repeated string user_ids = 1;
+}
+
+message GetUserListResponse {
+    repeated User users = 1;
+}
+
+message User {
+    int32 id = 1;
+    string email = 2;
+    string phone_no = 3;
+    string name = 4;
+    string role = 5;
+}
