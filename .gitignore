@@ -1,3 +1,3 @@
-.env
-.vscode
+ecomerceuser/.env
+.vscode*
 .history
