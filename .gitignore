@@ -1,3 +1,5 @@
-ecomerceuser/.env
+**/.env
 .vscode*
 .history
+**/.vscode
+**/.history
