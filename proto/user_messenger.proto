@@ -1,8 +1,7 @@
 syntax = "proto3";
 
-option go_package = "../ecomerceuser";
+option go_package = "../proto";
 
-package proto;
 
 service UserMessenger {
     rpc GetUserList (GetUserListRequest) returns (GetUserListResponse);

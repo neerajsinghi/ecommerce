@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UserMessenger_GetUserList_FullMethodName = "/ecommerce.UserMessenger/GetUserList"
+	UserMessenger_GetUserList_FullMethodName = "/UserMessenger/GetUserList"
 )
 
 // UserMessengerClient is the client API for UserMessenger service.
@@ -108,7 +108,7 @@ func _UserMessenger_GetUserList_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserMessenger_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ecommerce.UserMessenger",
+	ServiceName: "UserMessenger",
 	HandlerType: (*UserMessengerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
