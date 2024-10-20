@@ -4,7 +4,7 @@
 // 	protoc        v5.28.2
 // source: proto/user_messenger.proto
 
-package ecomerceuser
+package proto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"

@@ -3,25 +3,25 @@ package grpcapis
 import (
 	"context"
 	"ecommerceuser/model"
-	grpc_api "ecommerceuser/proto"
+	"ecommerceuser/proto"
 )
 
 type UserMessengerServer struct {
-	grpc_api.UnimplementedUserMessengerServer
+	proto.UnimplementedUserMessengerServer
 }
 
 func NewGrpcServer() *UserMessengerServer {
 	return &UserMessengerServer{}
 }
 
-func (s *UserMessengerServer) GetUserList(ctx context.Context, in *grpc_api.GetUserListRequest) (*grpc_api.GetUserListResponse, error) {
+func (s *UserMessengerServer) GetUserList(ctx context.Context, in *proto.GetUserListRequest) (*proto.GetUserListResponse, error) {
 	db := model.GetDB()
 	var users []model.User
 	input := in.UserIds
 	db.Where("id IN ?", input).Find(&users)
-	var grpcUsers []*grpc_api.User
+	var grpcUsers []*proto.User
 	for _, user := range users {
-		grpcUser := &grpc_api.User{
+		grpcUser := &proto.User{
 			Id:      int32(user.ID),
 			Name:    user.Name,
 			Email:   user.Email,
@@ -29,7 +29,7 @@ func (s *UserMessengerServer) GetUserList(ctx context.Context, in *grpc_api.GetU
 		}
 		grpcUsers = append(grpcUsers, grpcUser)
 	}
-	return &grpc_api.GetUserListResponse{
+	return &proto.GetUserListResponse{
 		Users: grpcUsers,
 	}, nil
 }
